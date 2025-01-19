@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Join Meeting{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-5">Join Meeting</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('join') }}" class="mt-4">
+        <div class="form-group">
+            <input type="text" placeholder="Enter Room ID" class="form-control" id="roomID" name="roomID" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg mt-3">Join</button>
+    </form>
+
+    <div class="mt-4 text-center">
+        <p>Don't have a Room ID? <a href="{{ url_for('dashboard') }}" class="text-primary">Back to Dashboard</a></p>
+    </div>
+</div>
+{% endblock %}

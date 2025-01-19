@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}My Dashboard{% endblock %}
+
+{% block content %}
+<!-- Welcome Header -->
+<h1 class="fw-bold">Welcome, {{ first_name }} {{ last_name }}</h1>
+<hr>
+
+<!-- Meeting Options Section -->
+<div class="d-flex justify-content-center mb-4">
+    <div class="button-container text-center">
+        <a class="btn btn-primary btn-lg m-2" href="{{ url_for('meeting') }}">Create Meeting</a>
+        <a class="btn btn-success btn-lg m-2" href="{{ url_for('join') }}">Join Meeting</a>
+        <a class="btn btn-outline-light btn-lg m-2" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
+
+{% endblock %}
